@@ -11,7 +11,6 @@ An interactive educational game to learn American Sign Language (ASL). This web 
     -   **Speed Round**: Identify as many signs as you can in 60 seconds!
 -   **Reference Chart**: A handy chart displaying all alphabet and number signs for study and review.
 -   **Score Tracking**: The app keeps track of your high scores for each game mode to monitor your progress.
--   **Fully Offline**: Thanks to a Service Worker, the entire application can be installed on your device and works without an internet connection after the first visit.
 -   **Responsive Design**: Enjoy a seamless experience on both desktop and mobile devices.
 
 ## Setup & How to Play
