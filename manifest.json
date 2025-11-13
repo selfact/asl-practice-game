@@ -1,0 +1,16 @@
+{
+  "name": "ASL Practice",
+  "short_name": "ASL Practice",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F0F9FF",
+  "theme_color": "#1D4ED8",
+  "description": "An interactive educational game to learn American Sign Language (ASL) offline.",
+  "icons": [
+    {
+      "src": "vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

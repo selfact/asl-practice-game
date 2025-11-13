@@ -1,0 +1,376 @@
+:root {
+    --primary: #1D4ED8;
+    --secondary: #F97316;
+    --light: #F0F9FF;
+    --dark: #1E293B;
+    --success: #16A34A;
+    --danger: #DC2626;
+    --white: #FFFFFF;
+    --slate-200: #e2e8f0;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --sky-50: #f0f9ff;
+    --sky-100: #e0f2fe;
+    --sky-200: #bae6fd;
+    --blue-700: #1d4ed8;
+    --orange-600: #ea580c;
+    --red-700: #b91c1c;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light);
+    color: var(--slate-700);
+    line-height: 1.6;
+}
+
+#app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+main {
+    width: 100%;
+    max-width: 64rem;
+    margin: 2rem auto;
+    flex-grow: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Header & Footer */
+.app-header {
+    text-align: center;
+}
+.app-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-weight: 900;
+    color: var(--primary);
+    letter-spacing: -0.025em;
+}
+.app-subtitle {
+    font-size: 1.125rem;
+    color: var(--slate-600);
+    margin-top: 0.5rem;
+}
+.app-footer {
+    text-align: center;
+    color: var(--slate-500);
+    padding: 1rem 0;
+}
+
+/* Buttons */
+.btn {
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+    transition: transform 0.15s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+}
+.btn:hover {
+    transform: scale(1.05);
+}
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.btn-primary { background-color: var(--primary); color: var(--white); }
+.btn-secondary { background-color: var(--secondary); color: var(--white); }
+.btn-danger { background-color: var(--danger); color: var(--white); }
+.btn-ghost { background-color: transparent; color: var(--slate-600); box-shadow: none; }
+
+/* Cards & Layout */
+.card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+    border: 1px solid var(--slate-200);
+}
+.game-card {
+    transition: transform 0.1s ease;
+}
+.game-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Menu View */
+.menu-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+@media (min-width: 768px) {
+    .menu-layout {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+.game-modes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.game-modes-grid h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+.game-modes-grid p {
+    color: var(--slate-600);
+    margin: 0.5rem 0 1rem;
+}
+.scoreboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.scoreboard-item {
+    text-align: center;
+    background-color: var(--sky-50);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}
+.scoreboard-item p:first-child {
+    font-weight: 600;
+    color: var(--slate-700);
+}
+.scoreboard-item p:last-child {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary);
+}
+.w-full { width: 100%; }
+
+/* Game View */
+.game-container {
+    max-width: 42rem;
+    margin: 0 auto;
+    text-align: center;
+}
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.game-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--sky-100);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+}
+.game-stats span {
+    font-weight: 700;
+    color: var(--primary);
+}
+.sign-display {
+    position: relative;
+    width: clamp(12rem, 50vw, 16rem);
+    height: clamp(12rem, 50vw, 16rem);
+    margin: 0 auto 1.5rem;
+    background-color: var(--slate-200);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 4px solid var(--white);
+    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.05);
+}
+.sign-display img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.5rem;
+}
+.sign-display-text {
+    position: absolute;
+    bottom: 0.5rem;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.feedback-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+}
+.feedback-overlay.correct { color: var(--success); }
+.feedback-overlay.incorrect { color: var(--danger); }
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.options-grid .btn {
+    font-size: 1.5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.options-grid .btn-image-option {
+    padding: 0.5rem;
+    background-color: var(--sky-100);
+}
+.options-grid .btn-image-option:hover {
+    background-color: var(--sky-200);
+}
+.options-grid .btn-image-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none; /* Ensures the click event is on the button */
+}
+
+.game-over-modal {
+    text-align: center;
+}
+.game-over-modal h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.game-over-modal p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+.game-over-modal span {
+    font-weight: 700;
+    color: var(--secondary);
+}
+.game-over-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+
+/* Memory Game */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.memory-card {
+    aspect-ratio: 1 / 1;
+    border-radius: 0.5rem;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+.memory-card.is-flipped {
+    transform: rotateY(180deg);
+}
+.memory-card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+.memory-card-front {
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: 3rem;
+    font-weight: 900;
+}
+.memory-card-back {
+    background-color: var(--sky-200);
+    transform: rotateY(180deg);
+    padding: 0.5rem;
+}
+.memory-card-back.is-matched {
+    background-color: rgba(22, 163, 74, 0.2);
+}
+.memory-card-back img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.memory-card-back span {
+    font-size: clamp(2rem, 10vw, 4rem);
+    font-weight: 700;
+    color: var(--dark);
+}
+
+
+/* Reference Chart */
+.reference-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.reference-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.reference-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1rem;
+}
+.reference-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--sky-50);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--sky-200);
+}
+.reference-item img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+}
+.reference-item span {
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}

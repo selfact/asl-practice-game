@@ -1,0 +1,5 @@
+{
+  "name": "ASL Practice",
+  "description": "An interactive educational game to learn American Sign Language (ASL). This game covers the alphabet from A-Z and numbers from 1-20. For the game to function correctly, please create a public `/images` folder in your project and place the ASL sign images inside, named `a.png`, `b.png`, through `z.png`, and `1.png` through `20.png`.",
+  "requestFramePermissions": []
+}

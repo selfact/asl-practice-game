@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASL Practice - Learn American Sign Language</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="app-container">
+        <header class="app-header">
+            <h1 class="app-title">ASL Practice</h1>
+            <p class="app-subtitle">Your Journey to Learning the ASL Alphabet (A-Z) & Numbers (1-20)!</p>
+        </header>
+
+        <main>
+            <!-- Menu View -->
+            <section id="view-menu">
+                <div class="menu-layout">
+                    <div id="game-modes-container" class="game-modes-grid">
+                        <!-- Game mode cards will be injected by JS -->
+                    </div>
+                    <div id="scoreboard-container">
+                        <!-- Scoreboard will be injected by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game View -->
+            <section id="view-game" class="hidden">
+                <!-- Game content will be injected by JS -->
+            </section>
+
+            <!-- Reference Chart View -->
+            <section id="view-reference" class="hidden">
+                <!-- Reference chart will be injected by JS -->
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2024 ASL Practice. Learn. Play. Sign.</p>
+        </footer>
+    </div>
+
+    <!-- App Logic -->
+    <script src="./app.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
