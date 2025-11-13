@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# ASL Practice - Learn American Sign Language
 
-# Run and deploy your AI Studio app
+An interactive educational game to learn American Sign Language (ASL). This web application helps users practice and memorize the ASL alphabet (A-Z) and numbers (1-20) through a series of fun and engaging games.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1Vh8qKIQgX12a4u7Bj417_FYAu11IoqPv
+-   **Multiple Game Modes**: Choose from four different games to test your knowledge.
+    -   **Flash Match**: A letter or number is shown; you pick the correct sign.
+    -   **Guess the Sign**: An image of a sign is shown; you guess the correct letter or number.
+    -   **Memory Cards**: A classic card-matching memory game with ASL signs and their corresponding characters.
+    -   **Speed Round**: Identify as many signs as you can in 60 seconds!
+-   **Reference Chart**: A handy chart displaying all alphabet and number signs for study and review.
+-   **Score Tracking**: The app keeps track of your high scores for each game mode to monitor your progress.
+-   **Fully Offline**: Thanks to a Service Worker, the entire application can be installed on your device and works without an internet connection after the first visit.
+-   **Responsive Design**: Enjoy a seamless experience on both desktop and mobile devices.
 
-## Run Locally
+## Setup & How to Play
 
-**Prerequisites:**  Node.js
+### Prerequisites
 
+For the game to function correctly, you must provide the ASL sign images.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1.  Create a folder named `images` in the root directory of the project.
+2.  Place the ASL sign images inside this folder.
+3.  Images must be named according to the sign they represent:
+    -   Alphabet: `a.png`, `b.png`, `c.png`, ..., `z.png`
+    -   Numbers: `1.png`, `2.png`, `3.png`, ..., `20.png`
+
+### Running the Application
+
+No complex build process is required. Simply open the `index.html` file in any modern web browser (like Chrome, Firefox, or Safari).
+
+## Technology
+
+This project is built with vanilla web technologies, focusing on performance, accessibility, and offline-first principles.
+
+-   **HTML5**
+-   **CSS3**
+-   **JavaScript (ES6+)**
+-   **Service Worker API** for offline caching.
+
+---
+*Learn. Play. Sign.*
